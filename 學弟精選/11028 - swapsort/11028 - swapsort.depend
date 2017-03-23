@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1464921922 source:c:\users\t440\desktop\c language\nthu oj\11028 - swapsort\function.cpp
+	"function.h"
+
+1464916842 c:\users\t440\desktop\c language\nthu oj\11028 - swapsort\function.h
+	<iostream>
+	<vector>
+	<set>
+	<list>
+	<algorithm>
+
+1464807828 source:c:\users\t440\desktop\c language\nthu oj\11028 - swapsort\main.cpp
+	"function.h"
+

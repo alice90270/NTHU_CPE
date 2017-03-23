@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1451925923 source:c:\users\t440\desktop\10885 - building designing\function.c
+	"function.h"
+
+1451925923 c:\users\t440\desktop\10885 - building designing\function.h
+
+1451925923 source:c:\users\t440\desktop\10885 - building designing\main.c
+	<stdio.h>
+	<stdlib.h>
+	"function.h"
+
+1451925923 source:c:\users\t440\desktop\c language\nthu oj\10885 - building designing\main.c
+	<stdio.h>
+	<stdlib.h>
+	"function.h"
+
+1451925923 c:\users\t440\desktop\c language\nthu oj\10885 - building designing\function.h
+

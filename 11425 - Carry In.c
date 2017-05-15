@@ -1,17 +1,30 @@
 #include<stdio.h>
+#include<string.h>
 
 int main(){
-    long long int a, b;
-    while(scanf("%lld %lld", &a, &b)!=EOF){
+    char a[1000000], b[1000000];
+
+    while(scanf("%s %s%*c", &a, &b)!=EOF){
         //printf("a=%lld, b=%lld\n", a, b);
         int sum=0;
-        int A=0;
-        int B=0;
+        char A=0;
+        char B=0;
         int carry=0;
+        int lena =strlen(a);
+        int lenb =strlen(b);
+        //printf("%d\n",lena);
+        //printf("%d\n",lenb);
 
-        while((a!=0)||(b!=0)){
-            A=a%10;
-            B=b%10;
+        while((lena>-1)||(lenb>-1)){
+            A=a[lena-1];
+            //printf("%c=> %d\n", A, A-48);
+            B=b[lenb-1];
+            //printf("%c=> %d\n", B ,B-48);
+
+            if((A-48)<0||lena<0) A=0;
+            else         A=A-48;
+            if((B-48)<0||lenb<0) B=0;
+            else         B=B-48;
             //printf("A+B+carry=%d+%d+%d\n", A, B, carry);
             if(A+B+carry>=10){
                 sum++;
@@ -20,8 +33,15 @@ int main(){
             else{
                 carry=0;
             }
-            a=a/10;
-            b=b/10;
+            lena--;
+            lenb--;
+        }
+                int i;
+        for(i=0;i<lena;i++){
+            a[i]='0';
+        }
+        for(i=0;i<lenb;i++){
+            b[i]='0';
         }
         printf("%d\n", sum);
     }

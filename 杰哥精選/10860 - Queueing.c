@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include <string.h>
-char nam[10000000][11];
+char name[10000000][11];
 int main(){
-    int f,p;
+    int first,last;
     char str[6];
-    p = -1;
-    f = 0;
+    last = -1;
+    first = 0;
     while(scanf("%s", str)!=EOF){
-        if(strcmp(str,"Push")==0){
-            p++;
-            scanf("%s", nam[p]);
+        if(str[1]=='u'){
+            last++;
+            scanf("%s", name[last]);
         }
-        else if(strcmp(str, "Pop")==0){
-            if(f <= p)
-                f++;
+        else if(str[1]=='o'){
+            if(first <= last)
+                first++;
         }
-        else if(strcmp(str, "Front")==0){
-            if(f <= p)
-                printf("%s\n", nam[f]);
+        else if(str[1]=='r'){
+            if(first <= last)
+                printf("%s\n", name[first]);
             else
                 printf("empty\n");
         }

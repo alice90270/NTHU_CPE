@@ -20,20 +20,34 @@ int main(){
         int all = pow(2, n);
         //printf("%d\n", all);
         for(i = 0; i < all; i++){
+
             buf = i;
             int grp0, grp1;
             grp0 = 0;
             grp1 = 0;
             for(j = 0; j < n; j++){
-                if(buf%2 == 1)
+                //printf("i=%d j=%d\n", buf, j);
+                if(buf%2 == 1){
+                    //printf("    grp1: %d=%d+%d\n", grp1+in[j], grp1, in[j]);
+                    printf("1");
                     grp1 = grp1+in[j];
-                else
+                    }
+                else{
+                    //printf("    grp0: %d=%d+%d\n", grp0+in[j], grp0, in[j]);
+                    printf("0");
                     grp0 = grp0+in[j];
+                }
+
                 buf = buf/2;
+//                printf("group1=%d group2=%d\n", grp0, grp1);
+
             }
             //printf("%d %d\n", grp0, grp1);
-            if(out > abs(grp0-grp1))
+            printf("  *** abs=%d, out=%d \n", abs(grp0-grp1), out);
+            if(out > abs(grp0-grp1)){
+                printf("  **UPDATE!** \n");
                 out = abs(grp0-grp1);
+            }
         }
         printf("%d\n", out);
         out = 0;

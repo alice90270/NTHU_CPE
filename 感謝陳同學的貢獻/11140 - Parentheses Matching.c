@@ -11,23 +11,24 @@ int check_pair(char a, char b)  {
 }
 
 int main(){
-    int testcase, i, j;
+    int testcase, i, j, error, length, cp_index;
     char sp;
     // %c for handling \n
     scanf("%d%c", &testcase, &sp);
 
-    for(i=0; i<testcase; i++){
-        int error=0;
+    for(i=1; i<=testcase; i++){
+
         char s[1005], cp[1005];
         gets(s);
         // empty string
         if(strlen(s)==0) {
-            printf("Case %d: Yes\n", i+1);
+            printf("Case %d: Yes\n", i);
             continue; //next loop
         }
 
-        int length = strlen(s);
-        int cp_index=0;
+        length = strlen(s);
+        cp_index=0;
+        error=0;
         for(j=0; j<length; j++){
             /* left: push in stack */
             if(s[j]=='(' || s[j]=='<' || s[j]=='[' || s[j]=='{'){
@@ -47,10 +48,10 @@ int main(){
             }
         }
         if(cp_index!=0 || error==1)
-            printf("Case %d: No\n", i+1);
+            printf("Case %d: No\n", i);
         /* no error detected and all symbols are in pair */
         else
-            printf("Case %d: Yes\n", i+1);
+            printf("Case %d: Yes\n", i);
     }
     return 0;
 }

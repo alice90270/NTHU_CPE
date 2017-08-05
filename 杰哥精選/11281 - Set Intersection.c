@@ -9,7 +9,7 @@ int compare(const void * a, const void * b){
 
 int G1[1000000];
 int G2[1000000];
-int ou[1000000];
+int out[1000000];
 
 int main(){
     int n1, n2, i ,j, k;
@@ -30,7 +30,7 @@ int main(){
             if(j == n2)
                 break;
             if(G1[i] == G2[j]){
-                ou[k] = G1[i];
+                out[k] = G1[i];
                 k++;
                 j++;
                 continue;
@@ -44,9 +44,9 @@ int main(){
             printf("empty\n");
         for(i = 0; i < k; i++){
             if(i == k-1)
-                printf("%d\n", ou[i]);
+                printf("%d\n", out[i]);
             else
-                printf("%d ", ou[i]);
+                printf("%d ", out[i]);
         }
     }
     return 0;

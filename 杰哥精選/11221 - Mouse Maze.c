@@ -5,11 +5,10 @@ int main(){
     char buf;
     scanf("%d", &n);
     for(k = 0; k < n; k++){
-        scanf("%d %d", &r, &c);
+        scanf("%d %d%c", &r, &c, &buf);
         char map[r][c];
         int step[r][c];
         int que[r*c][2];
-        scanf("%c", &buf);
         for(i = 0; i < r; i++){
             for(j = 0; j < c; j++){
                 scanf("%c", &map[i][j]);
@@ -46,59 +45,56 @@ int main(){
             }
             int x = que[que_now][0];
             int y = que[que_now][1];
-            //up
-            //printf("AAAAAA\n");
+        //////////////////up//////////////////
+            //沒有超過邊界而且是終點
             if((y-1) >= 0 && map[x][y-1] == 'F'){
                 printf("%d\n", step[x][y]+1);
                 break;
             }
-            //printf("BBBBBB\n");
+            //有路且還沒走過
             else if(((y-1) >= 0) && (map[x][y-1] != '#' && step[x][y-1] == -1)){
-                step[x][y-1] = step[x][y]+1;
+                step[x][y-1] = step[x][y]+1; //設定走過
                 que[que_put][0] = x;
                 que[que_put][1] = y-1;
                 que_put++;
+                //走道的地點存到QUE裡面
             }
-            //printf("CCCCCC\n");
-            //down
+
+        //////////////////down////////////////
             if((y+1) < c && map[x][y+1] == 'F'){
                 printf("%d\n", step[x][y]+1);
                 break;
             }
-            //printf("DDDDDD\n");
             else if(((y+1) < c) && (map[x][y+1] != '#' && step[x][y+1] == -1)){
                 step[x][y+1] = step[x][y]+1;
                 que[que_put][0] = x;
                 que[que_put][1] = y+1;
                 que_put++;
             }
-            //printf("EEEEEE\n");
-            //left
+
+        //////////////////left////////////////
             if((x-1) >= 0 && map[x-1][y] == 'F'){
                 printf("%d\n", step[x][y]+1);
                 break;
             }
-            //printf("FFFFFF\n");
             else if(((x-1) >= 0) && (map[x-1][y] != '#' && step[x-1][y] == -1)){
                 step[x-1][y] = step[x][y]+1;
                 que[que_put][0] = x-1;
                 que[que_put][1] = y;
                 que_put++;
             }
-            //printf("GGGGGG\n");
-            //right
+
+        //////////////////right////////////////
             if((x+1) < r && map[x+1][y] == 'F'){
                 printf("%d\n", step[x][y]+1);
                 break;
             }
-            //printf("HHHHHHH\n");
             else if(((x+1) < r) && (map[x+1][y] != '#' && step[x+1][y] == -1)){
                 step[x+1][y] = step[x][y]+1;
                 que[que_put][0] = x+1;
                 que[que_put][1] = y;
                 que_put++;
             }
-            //printf("IIIIIII\n");
             /*for(i = 0; i < r; i++){
                 for(j = 0; j < c; j++){
                     printf("%d", step[i][j]);

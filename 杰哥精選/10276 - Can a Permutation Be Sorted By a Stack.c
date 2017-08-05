@@ -1,47 +1,50 @@
-#include <stdio.h>
+#include<stdio.h>
 
 int main(){
-    int n;
-    while(scanf("%d", &n)!=EOF){
-        int i, point, flag,cur;
-        int st[n], in[n];
-        for(i =0; i < n; i++){
-            scanf("%d", &in[i]);
+    int N;
+
+    while(scanf("%d", &N)!=EOF){
+
+        int index, top, current, flag, i;
+        int input[N];
+        int stack[N];
+
+        for(i=0;i<N;i++){
+            scanf("%d", &input[i]);
         }
-        point = 0;
-        i = 0;
-        cur = 1;
+        top=0;
+        current=1;
+        index=0;
+
         while(1){
-            if(cur > n){
-                flag = 0;
+            if(current>N){//over the input array
+                flag=0;
                 break;
             }
-            if(i >= n && st[point-1]!= cur){
-                flag = 1;
+            if(index>=N && stack[top-1]!=current){//stack top != current count
+                flag=1;
                 break;
             }
-            //pop
-            if(point != 0 && st[point-1] == cur){
-                //printf("pop %d %d %d\n", point, st[point-1], cur);
-                cur++;
-                point--;
+
+            //POP
+            if(stack[top-1]==current && top!=0){ //not empty stack
+                current++;
+                top--;
             }
-            else if(in[i] == cur){//output
-                //printf("output %d %d %d\n", i, in[i], cur);
-                cur++;
-                i++;
+            //OUT
+            else if(input[index]==current){
+                    current++;
+                    index++;
             }
-            else{//push
-                //printf("push %d\n", in[i]);
-                st[point] = in[i];
-                point++;
-                i++;
+            //PUSH
+            else{
+                stack[top]=input[index];
+                index++;
+                top++;
             }
         }
-        if(flag == 0)
-            printf("YES\n");
-        else
-            printf("NO\n");
+        if(flag==0) printf("YES\n");
+        else        printf("NO\n");
     }
     return 0;
 }

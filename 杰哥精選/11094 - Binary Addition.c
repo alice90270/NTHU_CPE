@@ -10,6 +10,7 @@ int main(){
         int b[len];
         int out[len];
         scanf("%c", &gar);
+        //////////////input//////////////
         for(i = 0; i < len; i++){
              scanf("%c", &gar);
              if(gar == '0')

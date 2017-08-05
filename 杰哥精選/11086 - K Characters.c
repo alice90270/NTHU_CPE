@@ -4,6 +4,7 @@ int out[21];
 
 void dfs(int len, int step, int fro){
     int i;
+    //step=len®É²×¤î»¼°j
     if(step == len){
         for(i = 0; i < len; i++){
             if(out[i] < 26)
@@ -14,6 +15,7 @@ void dfs(int len, int step, int fro){
         printf("\n");
         return;
     }
+    //step=0~len-1
     else{
         for(i = fro; i < 52; i++){
             if(count[i] != 0){
@@ -29,7 +31,7 @@ void dfs(int len, int step, int fro){
 int main(){
     int n, w, len, i, j;
     scanf("%d", &n);
-    for(i = 0; i < n; i++){
+    while(n--){
         for(j = 0; j < 52; j++)
             count[j] = 0;
         scanf("%d %d", &w, &len);
